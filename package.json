@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/ItsCrisDiaz/accesibilidadweb.today#readme",
   "dependencies": {
+    "autoprefixer": "^10.4.13",
     "eleventy-postcss-extension": "^1.0.0",
     "postcss": "^8.4.20",
     "postcss-cli": "^10.1.0"
