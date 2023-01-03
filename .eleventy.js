@@ -1,5 +1,7 @@
 const { DateTime } = require("luxon");
 const sass = require("sass");
+const webCPlugin = require("@11ty/eleventy-plugin-webc");
+const { EleventyRenderPlugin } = require("@11ty/eleventy");
 const pluginCSS = require("eleventy-postcss-extension");
 
 module.exports = function (eleventyConfig) {
@@ -9,6 +11,18 @@ module.exports = function (eleventyConfig) {
   });
 
   eleventyConfig.addPlugin(pluginCSS);
+  eleventyConfig.addPlugin(webCPlugin, {
+    // Glob to find no-import global components
+    // (The default changed from `false` in Eleventy WebC v0.7.0)
+    components: "./src/_includes/components/*.webc",
+
+    // Adds an Eleventy WebC transform to process all HTML output
+    useTransform: false,
+
+    // Additional global data used in the Eleventy WebC transform
+    transformData: {},
+  });
+  eleventyConfig.addPlugin(EleventyRenderPlugin);
 
   // Export assets and HTML files (to redirect)
   eleventyConfig.addPassthroughCopy("./src/**.svg");

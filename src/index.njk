@@ -36,16 +36,20 @@
           suscribirte a este newsletter para estar al tanto de las
           actualizaciones de este sitio.
         </p>
-        <div id="newsletter">
-          <p>
-            Si quieres seguir las actualizaciones de este proyecto, puedes
-            suscribirte a mi newsletter. Parece que no tienes JavaScript
-            activado. ¡No hay problema! Envíame un correo a
-            <a href="mailto:cristian@accesibilidadweb.today"
-              >cristian@accesibilidadweb.today</a
-            >
-            y yo me encargaré del proceso
-          </p>
+        <div id="newsletter" class="flow">
+          <form class="flow" action="https://us-central1-substackapi.cloudfunctions.net/subscribe" method="POST">
+            <div class="l-sidebar">
+              <div data-content>
+                <label class="label" for="newsletterEmail">Correo electrónico:</label>
+                <input class="input" type="email" id="newsletterEmail" name="email" required>
+                <label for="newsletterDomain" hidden>Dominio:</label>
+                <input type="text" id="newsletterDomain" name="domain" value="accesibilidadweb.substack.com/" hidden>
+              </div>
+              <div data-sidebar>
+                <button class="submit" type="submit">Suscribirse</button>
+              </div> 
+            </div>
+          </form>
         </div>
       </div>
     </main>

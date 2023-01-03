@@ -1,0 +1,40 @@
+<script></script>
+
+<template>
+  <form class="flow" novalidate>
+    <div class="l-sidebar">
+      <div data-content>
+        <label class="label" for="substackForm">Correo electrónico</label>
+        <p
+          class="status error"
+          id="substackInputError"
+          data-inline
+          data-form-error
+        ></p>
+        <input
+          class="input"
+          id="substackForm"
+          type="email"
+          aria-describedby="substackInputError"
+          required
+        />
+      </div>
+      <div data-sidebar>
+        <button class="submit" type="submit">Suscribirse</button>
+      </div>
+    </div>
+    <div role="status" aria-busy="true" class="loader flow" tabindex="-2"></div>
+    <div role="status" class="status" tabindex="-2" data-form-state></div>
+  </form>
+</template>
+
+<style webc:scoped>
+  :host footer {
+    padding-block: 3rem;
+    padding-inline: 1rem;
+  }
+
+  :host footer > p {
+    font-family: fantasy;
+  }
+</style>

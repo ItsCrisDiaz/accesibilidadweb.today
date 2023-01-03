@@ -6,10 +6,10 @@
   "scripts": {
     "start": "run-p dev:*",
     "dev:eleventy": "eleventy --serve --quiet",
-    "dev:sass": "sass --watch src/sass:public",
+    "dev:sass": "sass --watch src/_includes/sass:public",
     "build": "run-p build:*",
     "build:eleventy": "eleventy",
-    "build:sass": "sass --no-source-map src/sass:public",
+    "build:sass": "sass --no-source-map src/_includes/sass:public",
     "postbuild": "postcss public/*.css --dir public --no-map"
   },
   "repository": {
@@ -18,7 +18,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/ItsCrisDiaz/accesibilidadweb.today/issues"
   },
@@ -30,9 +30,10 @@
     "postcss-cli": "^10.1.0"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.2",
+    "@11ty/eleventy": "^2.0.0-canary.19",
     "@11ty/eleventy-plugin-rss": "^1.2.0",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.2.0",
+    "@11ty/eleventy-plugin-webc": "^0.8.1",
     "npm-run-all": "^4.1.5",
     "sass": "^1.57.1"
   }
