@@ -1,67 +1,55 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
+---
+title: accesibilidadweb.today
+description: "Guía en desarrollo de accesibilidad web en desarrollo web y diseño de interfaces"
+layout: "base.njk"
+link: "accesibilidadweb.today"
+imageName: "card"
+imageWidth: "1200"
+imageHeight: "130"
+ogType: "website"
+eleventyComputed:
+  metaTitle: "{{ title }}"
+  metaDescription: "{{ description }}"
+  canonical: "{{ link }}"
+---
 
-    <title>
-      Guía en construcción sobre accesibilidad web | Accesibilidadweb.today
-    </title>
-    <link rel="icon" href="./logo-lm.svg" />
-    <link
-      rel="icon"
-      href="./logo-dm.svg"
-      media="(prefers-color-scheme: dark)"
-    />
-  </head>
-  <body>
-    <main>
-      <div class="wrapper flow">
-        <h1>Bienvenido a accesibilidadweb.today</h1>
-        <p>
-          Este es un proyecto que busca crear una guía de aprendizaje de
-          accesibilidad web enfocada a <strong>desarrollo web</strong> y
-          <strong>diseño de interfaces</strong>.
-        </p>
-        <p>
-          Este sitio está en proceso de construcción. Mientras tanto, puedes
-          suscribirte a este newsletter para estar al tanto de las
-          actualizaciones de este sitio.
-        </p>
-        <substack-form domain="accesibilidadweb.substack.com/" width="50ch" buttonwidth="12rem">
-          <form class="flow" action="https://us-central1-substackapi.cloudfunctions.net/subscribe" method="POST">
-            <div class="l-sidebar">
-              <div data-content>
-                <label class="label" for="newsletterEmail">Correo electrónico:</label>
-                <input class="input" type="email" id="newsletterEmail" name="email" required>
-                <label for="newsletterDomain" hidden>Dominio:</label>
-                <input type="text" id="newsletterDomain" name="domain" value="accesibilidadweb.substack.com/" hidden>
-              </div>
-              <div data-sidebar>
-                <button class="submit" type="submit">Suscribirse</button>
-              </div> 
-            </div>
-          </form>
-        </substack-form>
-      </div>
-    </main>
+<main>
+  <div class="wrapper flow">
+    <h1>Bienvenido a accesibilidadweb.today</h1>
+    <p>
+      Este es un proyecto que busca crear una guía de aprendizaje de
+      accesibilidad web enfocada a <strong>desarrollo web</strong> y
+      <strong>diseño de interfaces</strong>.
+    </p>
+    <p>
+      Este sitio está en proceso de construcción. Mientras tanto, puedes
+      suscribirte a este newsletter para estar al tanto de las
+      actualizaciones de este sitio.
+    </p>
+    <substack-form domain="accesibilidadweb.substack.com/" width="50ch" buttonwidth="12rem">
+      <form class="flow" action="https://us-central1-substackapi.cloudfunctions.net/subscribe" method="POST">
+        <div class="l-sidebar">
+          <div data-content>
+            <label class="label" for="newsletterEmail">Correo electrónico:</label>
+            <input class="input" type="email" id="newsletterEmail" name="email" required>
+            <label for="newsletterDomain" hidden>Dominio:</label>
+            <input type="text" id="newsletterDomain" name="domain" value="accesibilidadweb.substack.com/" hidden>
+          </div>
+          <div data-sidebar>
+            <button class="submit" type="submit">Suscribirse</button>
+          </div> 
+        </div>
+      </form>
+    </substack-form>
+  </div>
+</main>
 
-    <footer>
-      <div class="wrapper">
-        <p>
-          Sitio y newsletter creado por
-          <a href="https://www.itscrisdiaz.com/links">Cristian Díaz</a> y hecho con <a href="https://www.11ty.dev/">Eleventy</a>
-        </p>
-      </div>
-    </footer>
-    <script src="./substackForm.min.js" async></script>
-  </body>
-</html>
+<footer>
+  <div class="wrapper">
+    <p>
+      Sitio y newsletter creado por
+      <a href="https://www.itscrisdiaz.com/links">Cristian Díaz</a> y hecho con <a href="https://www.11ty.dev/">Eleventy</a>
+    </p>
+  </div>
+</footer>
+<script src="./substackForm.min.js" async></script>
