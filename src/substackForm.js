@@ -247,7 +247,6 @@ class SubstackForm extends HTMLElement {
 
         // Get the response and show the message in the UI
         let response = await request.json();
-        console.log(response);
         loading.innerHTML = "";
         announce.innerHTML = `<p>${this.successSvg} ¡Gracias por inscribirte! Te hemos enviado un correo de confirmación a <b>${this.inputEmail}</b> para que completes el proceso.</p>`;
         announce.classList.remove("error");
