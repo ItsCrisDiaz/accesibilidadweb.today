@@ -85,6 +85,7 @@ class SubstackForm extends HTMLElement {
         width: 100%;
         line-height: 2;
         font-family: inherit;
+        font-size: inherit;
         border: 2px solid var(--brand-color);
       }
 
