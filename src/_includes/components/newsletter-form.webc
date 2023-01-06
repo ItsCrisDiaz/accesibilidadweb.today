@@ -1,21 +1,38 @@
-<script></script>
+<form
+  class="flow"
+  action="https://us-central1-substackapi.cloudfunctions.net/subscribe"
+  method="POST"
+>
+  <div class="l-sidebar">
+    <div data-content>
+      <label class="label" :for="eid">Correo electrónico:</label>
+      <input class="input" type="email" :id="eid" name="email" required />
+      <label :for="did" hidden>Dominio:</label>
+      <input
+        type="text"
+        :id="did"
+        name="domain"
+        value="accesibilidadweb.substack.com/"
+        hidden
+      />
+    </div>
+    <div data-sidebar>
+      <button class="submit" type="submit">Suscribirse</button>
+    </div>
+  </div>
+</form>
 
 <template>
   <form class="flow" novalidate>
     <div class="l-sidebar">
       <div data-content>
-        <label class="label" for="substackForm">Correo electrónico</label>
-        <p
-          class="status error"
-          id="substackInputError"
-          data-inline
-          data-form-error
-        ></p>
+        <label class="label" :for="eid">Correo electrónico</label>
+        <p class="status error" :id="errorId" data-inline data-form-error></p>
         <input
           class="input"
-          id="substackForm"
+          :id="eid"
           type="email"
-          aria-describedby="substackInputError"
+          :aria-describedby="errorId"
           required
         />
       </div>
@@ -28,13 +45,15 @@
   </form>
 </template>
 
-<style webc:scoped>
-  :host footer {
-    padding-block: 3rem;
-    padding-inline: 1rem;
-  }
-
-  :host footer > p {
-    font-family: fantasy;
-  }
-</style>
+<script>
+  window.customElements.define(
+    "newsletter-form",
+    class extends HTMLElement {
+      connectedCallback() {
+        const template = this.querySelector("template");
+        console.log(template);
+        template.replaceWith(template.content);
+      }
+    }
+  );
+</script>
