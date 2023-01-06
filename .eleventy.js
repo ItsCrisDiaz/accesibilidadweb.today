@@ -26,7 +26,7 @@ module.exports = function (eleventyConfig) {
 
   // Export assets and HTML files (to redirect)
   eleventyConfig.addPassthroughCopy("./src/**.svg");
-  eleventyConfig.addPassthroughCopy("./src/substackForm.js");
+  eleventyConfig.addPassthroughCopy("./src/substackForm.min.js");
   // Get actual year
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
