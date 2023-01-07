@@ -13,6 +13,27 @@ eleventyComputed:
   canonical: "https://{{ link }}"
 ---
 
+{% import "./_includes/templates/header.njk" as header %}
+
+{# {% call header.header("600") %}
+  <nav>
+    <ul role="list">
+      <li>
+        <a href="#modules">Módulos</a>
+      </li>
+      <li>
+        <a href="#modules">Lecciones</a>
+      </li>
+      <li>
+        <a href="#modules">Autor</a>
+      </li>
+      <li>
+        <a href="#modules">Sigue este proyecto</a>
+      </li>
+    </ul>
+  </nav>
+{% endcall %} #}
+
 <main>
   <div class="wrapper flow">
     <h1>Bienvenido a accesibilidadweb.today</h1>
@@ -26,16 +47,16 @@ eleventyComputed:
       suscribirte a este newsletter para estar al tanto de las
       actualizaciones de este sitio.
     </p>
-    <substack-form domain="accesibilidadweb.substack.com/" width="50ch" buttonwidth="12rem">
+    <substack-form domain="accesibilidadweb.substack.com/">
       <form class="flow" action="https://us-central1-substackapi.cloudfunctions.net/subscribe" method="POST">
-        <div class="l-sidebar">
-          <div data-content>
+        <div class="form__container | l-has-sidebar">
+          <div class="form__input-container | l-content">
             <label class="label" for="newsletterEmail">Correo electrónico:</label>
             <input class="input" type="email" id="newsletterEmail" name="email" required>
             <label for="newsletterDomain" hidden>Dominio:</label>
             <input type="text" id="newsletterDomain" name="domain" value="accesibilidadweb.substack.com/" hidden>
           </div>
-          <div data-sidebar>
+          <div class="form__button-container | l-sidebar">
             <button class="submit" type="submit">Suscribirse</button>
           </div> 
         </div>

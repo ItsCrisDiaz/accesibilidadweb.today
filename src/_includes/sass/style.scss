@@ -105,6 +105,10 @@ main {
   margin: 0 auto;
 }
 
+[tabindex="-2"]:focus {
+  outline: none;
+}
+
 h1,
 strong {
   color: #881010;
@@ -114,10 +118,46 @@ strong {
   margin-top: var(--flow-space, 1em);
 }
 
+.l-has-sidebar {
+  --sidebar-gutter: 1em;
+  --sidebar-width: 30em;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sidebar-gutter);
+  max-width: 50ch;
+  margin-inline: auto;
+}
+
+.l-has-sidebar > .l-sidebar {
+  flex-basis: var(--sidebar-width);
+  flex-grow: 1;
+}
+
+.l-has-sidebar > .l-content {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-inline-size: 50%;
+}
+
 .form {
   --flow-space: 0.5em;
   margin-inline: auto;
-  width: fit-content;
+  max-width: 50ch;
+}
+
+.form__container {
+  --sidebar-width: 12em;
+}
+
+.form__input-container {
+  display: grid;
+  gap: 0.5em;
+  justify-items: start;
+}
+
+.form__button-container {
+  display: flex;
+  align-items: flex-end;
 }
 
 footer {
@@ -137,30 +177,6 @@ footer a {
 
 .left {
   text-align: start;
-}
-
-.l-sidebar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1em;
-  max-width: 50ch;
-  margin-inline: auto;
-}
-
-.l-sidebar [data-sidebar] {
-  display: flex;
-  align-items: flex-end;
-  flex-basis: 12rem;
-  flex-grow: 1;
-}
-
-.l-sidebar [data-content] {
-  display: grid;
-  gap: 0.5em;
-  justify-items: start;
-  flex-basis: 0;
-  flex-grow: 999;
-  min-inline-size: 50%;
 }
 
 .visually-hidden {
