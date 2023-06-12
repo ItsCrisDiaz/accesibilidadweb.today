@@ -1,0 +1,50 @@
+---
+import { SEO } from "astro-seo";
+
+const {
+  title = "Accesibilidadweb.today ",
+  theme = "default",
+  description = "Guía en español para aprender sobre accesibilidad web enfocada en desarrollo y diseño de interfaces",
+  seoImage,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" data-theme={theme} data-no-js>
+  <head>
+    <title>{title}</title>
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title: title,
+          type: "A type.",
+          image: seoImage,
+        },
+      }}
+      twitter={{
+        creator: "@ItsCrisDiaz",
+      }}
+      extend={{
+        // extending the default link tags
+        link: [{ rel: "icon", href: "/favicon.svg" }],
+        // extending the default meta tags
+        meta: [
+          {
+            name: "twitter:image",
+            content: seoImage,
+          },
+          { name: "twitter:title", content: "Tinker Tailor Soldier Spy" },
+          { name: "twitter:description", content: "Agent" },
+        ],
+      }}
+    />
+    <script defer>
+      document.querySelector("html").removeAttribute("data-no-js");
+    </script>
+  </head>
+  <body>
+    <main><slot /></main>
+  </body>
+</html>
