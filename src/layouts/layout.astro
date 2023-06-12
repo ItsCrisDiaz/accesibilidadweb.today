@@ -1,26 +1,32 @@
 ---
 import { SEO } from "astro-seo";
 
+import Header from "../components/Header/Header.astro";
+
 const {
-  title = "Accesibilidadweb.today ",
+  title = "Accesibilidadweb.today",
   theme = "default",
   description = "Guía en español para aprender sobre accesibilidad web enfocada en desarrollo y diseño de interfaces",
-  seoImage,
+  seoImage = {
+    url: "",
+    width: "200",
+    height: "200",
+  },
 } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="es" data-theme={theme} data-no-js>
   <head>
-    <title>{title}</title>
+    <!-- <link rel="canonical" href={Astro.url} /> -->
     <SEO
       title={title}
       description={description}
       openGraph={{
         basic: {
           title: title,
-          type: "A type.",
-          image: seoImage,
+          type: "website",
+          image: seoImage.url,
         },
       }}
       twitter={{
@@ -33,18 +39,30 @@ const {
         meta: [
           {
             name: "twitter:image",
-            content: seoImage,
+            content: seoImage.url,
           },
-          { name: "twitter:title", content: "Tinker Tailor Soldier Spy" },
-          { name: "twitter:description", content: "Agent" },
+          { name: "twitter:card", content: "summary_large_image" },
+          { name: "twitter:title", content: title },
+          { name: "twitter:description", content: description },
+          { property: "og:image:width", content: seoImage.width },
+          { property: "og:image:height", content: seoImage.height },
+          { property: "og:description", content: description },
         ],
       }}
     />
+    <meta name="generator" content={Astro.generator} />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style lang="scss" is:global>
+      @import "../sass/index.scss";
+    </style>
     <script defer>
       document.querySelector("html").removeAttribute("data-no-js");
     </script>
   </head>
+
   <body>
-    <main><slot /></main>
+    <Header />
+    <main id="main-content"><slot /></main>
   </body>
 </html>
