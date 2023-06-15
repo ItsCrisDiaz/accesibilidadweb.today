@@ -1,0 +1,22 @@
+.cover {
+  display: flex;
+  flex-direction: column;
+  min-block-size: var(--cover-height, 60vh);
+  padding: var(--cover-padding, 1rem);
+}
+
+.cover > * {
+  margin-block: var(--cover-margin, 1em);
+}
+
+.cover > :where(:first-child:not(.cover__center)) {
+  margin-block-start: 0;
+}
+
+.l-cover > :where(:last-child:not(.cover__center)) {
+  margin-block-end: 0;
+}
+
+.l-cover > .l-cover-center {
+  margin-block: auto;
+}

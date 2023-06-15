@@ -1,0 +1,7 @@
+@use "../abstract/font-sizes" as *;
+
+@each $key, $item in $font-sizes {
+  .fs-#{$key} {
+    font-size: var(--fs-#{$key});
+  }
+}

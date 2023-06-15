@@ -1,0 +1,10 @@
+.wrapper {
+  width: 100%;
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: var(--space-3) var(--space-5);
+
+  &[data-width="wide"] {
+    max-width: 1920px;
+  }
+}

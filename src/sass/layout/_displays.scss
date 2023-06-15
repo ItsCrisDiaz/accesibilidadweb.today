@@ -1,0 +1,13 @@
+/* Add flex display to any class that has the word "flex" on it */
+
+[class*="flex"] {
+  display: flex;
+  gap: var(--gap, 1em);
+}
+
+/* Add grid display to any class that has the word "grid" on it */
+
+[class*="grid"] {
+  display: grid;
+  gap: var(--gap, 1em);
+}

@@ -1,0 +1,11 @@
+$spaces: (
+  "1": clamp(0.5rem, calc(0.41rem + 0.43vw), 0.75rem),
+  "2": clamp(0.75rem, calc(0.62rem + 0.65vw), 1.13rem),
+  "3": clamp(1rem, calc(0.83rem + 0.87vw), 1.5rem),
+  "4": clamp(1.5rem, calc(1.24rem + 1.3vw), 2.25rem),
+  "5": clamp(2rem, calc(1.65rem + 1.74vw), 3rem),
+  "6": clamp(2.5rem, calc(2.07rem + 2.17vw), 3.75rem),
+  "7": clamp(3rem, calc(2.48rem + 2.61vw), 4.5rem),
+  "8": clamp(3.5rem, calc(2.89rem + 3.04vw), 5.25rem),
+  "9": clamp(4rem, calc(3.3rem + 3.48vw), 6rem),
+);

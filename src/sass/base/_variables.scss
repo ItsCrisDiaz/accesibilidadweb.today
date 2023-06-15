@@ -1,0 +1,67 @@
+@use "../abstract/colors" as *;
+@use "../abstract/font-sizes" as *;
+@use "../abstract/spaces" as *;
+@use "../abstract/themes" as *;
+
+:root {
+  $themes: false;
+  // COLOR CUSTOM PROPERTIES
+
+  // Neutral and main colors
+  @each $key, $item in $base {
+    @each $shade, $color in $item {
+      --clr-#{$key}-#{$shade}: #{$color};
+    }
+  }
+
+  // Modules colors
+  @each $key, $item in $modules {
+    @each $shade, $color in $item {
+      --clr-#{$key}-#{$shade}: #{$color};
+    }
+  }
+
+  // Color tokens for main color theme
+  @each $key, $item in $light {
+    --clr-#{$key}: var(--clr-main-#{$item});
+  }
+
+  @if $themes {
+    @media screen and (prefers-color-scheme: dark) {
+      @each $key, $item in $dark {
+        --clr-#{$key}: var(--clr-main-#{$item});
+      }
+    }
+  }
+
+  // Color tokens for different modules
+  @for $i from 1 through 8 {
+    &[data-theme="#{$i}"] {
+      @each $key, $item in $light {
+        --clr-#{$key}: var(--clr-module-#{$i}-#{$item});
+      }
+
+      @if $themes {
+        @media screen and (prefers-color-scheme: dark) {
+          @each $key, $item in $dark {
+            --clr-#{$key}: var(--clr-module-#{$i}-#{$item});
+          }
+        }
+      }
+    }
+  }
+
+  // FONT CUSTOM PROPERTIES
+  @each $key, $item in $font-sizes {
+    --fs-#{$key}: #{$item};
+  }
+
+  --ff-title: "Lexend", system-ui, sans-serif;
+  --ff-text: "Atkinson Hyperlegible", system-ui, sans-serif;
+
+  // SPACES CUSTOM PROPERTIES
+
+  @each $key, $item in $spaces {
+    --space-#{$key}: #{$item};
+  }
+}

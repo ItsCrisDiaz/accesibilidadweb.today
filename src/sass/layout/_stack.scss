@@ -1,0 +1,8 @@
+.stack {
+  display: grid;
+  grid-template-areas: "stack";
+}
+
+.stack > * {
+  grid-area: stack;
+}

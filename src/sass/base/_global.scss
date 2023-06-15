@@ -1,0 +1,44 @@
+body {
+  font-size: var(--fs-300);
+  font-family: var(--ff-text);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ff-title);
+}
+
+h1 {
+  font-size: var(--fs-600);
+}
+
+h2 {
+  font-size: var(--fs-500);
+}
+
+h3 {
+  font-size: var(--fs-400);
+}
+
+:focus-visible {
+  --outline-size: max(2px, 0.15em);
+  outline: var(--outline-width, var(--outline-size)) var(--outline-style, solid)
+    var(--outline-color, currentColor);
+  outline-offset: var(--outline-offset, var(--outline-size));
+
+  @media screen and (prefers-reduced-motion: no-preference) {
+    transition: outline-offset 200ms ease-in-out;
+  }
+}
+
+body {
+  background: linear-gradient(
+    102.81deg,
+    var(--clr-hero-bg-tone-1) 0%,
+    var(--clr-hero-bg-tone-2) 100%
+  );
+}
