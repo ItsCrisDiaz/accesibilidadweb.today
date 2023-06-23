@@ -3,6 +3,8 @@ import { SEO } from "astro-seo";
 
 import Header from "../components/Header/Header.astro";
 
+import favicon__lm from "/assets/images/favicon.svg";
+
 const {
   title = "Accesibilidadweb.today",
   theme = "default",
@@ -18,7 +20,6 @@ const {
 <!DOCTYPE html>
 <html lang="es" data-theme={theme} data-no-js>
   <head>
-    <!-- <link rel="canonical" href={Astro.url} /> -->
     <SEO
       title={title}
       description={description}
@@ -34,7 +35,7 @@ const {
       }}
       extend={{
         // extending the default link tags
-        link: [{ rel: "icon", href: "/favicon.svg" }],
+        link: [{ rel: "icon", href: favicon__lm }],
         // extending the default meta tags
         meta: [
           {

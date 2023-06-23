@@ -1,0 +1,31 @@
+.accordion-svg {
+  --_svg-main-fill: var(--clr-main-300);
+  --_svg-main-stroke: var(--clr-main-700);
+  --_svg-module-fill: var(--clr-neutral-200);
+  --_svg-module-stroke: var(--clr-neutral-600);
+  --_svg-module-line: var(--_svg-module-fill);
+
+  @media screen and (forced-colors: active) {
+    --_svg-main-fill: Canvas;
+    --_svg-main-stroke: CanvasText;
+    --_svg-module-fill: Canvas;
+    --_svg-module-stroke: CanvasText;
+    --_svg-module-line: CanvasText;
+  }
+}
+
+@media screen and (prefers-reduced-motion: no-preference) {
+  .accordion-svg [data-module] * {
+    transition: fill 300ms ease-in-out, stroke 300ms ease-in-out;
+  }
+}
+
+@media screen and (forced-colors: none) {
+  @for $i from 1 through 8 {
+    .accordion-svg [data-module="#{$i}"][data-active] {
+      --_svg-module-fill: var(--clr-module-#{$i}-300);
+      --_svg-module-stroke: var(--clr-module-#{$i}-700);
+      --_svg-module-line: var(--_svg-module-stroke);
+    }
+  }
+}

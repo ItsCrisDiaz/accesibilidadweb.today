@@ -3,6 +3,8 @@
   "compilerOptions": {
     // Preact specific settings
     "jsx": "react-jsx",
-    "jsxImportSource": "preact"
+    "jsxImportSource": "preact",
+    "strictNullChecks": true,
+    "allowJs": true
   }
 }

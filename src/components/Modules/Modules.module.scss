@@ -1,0 +1,24 @@
+.modules {
+  grid-gap: var(--space-3) var(--space-5);
+}
+
+.svg-col {
+  display: grid;
+  align-content: center;
+}
+
+@media screen and (max-width: 63.9375rem) {
+  .svg-col {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 64rem) {
+  .svg-col {
+    grid-column: 1 / 6;
+  }
+
+  .acc-col {
+    grid-column: 6 / 13;
+  }
+}

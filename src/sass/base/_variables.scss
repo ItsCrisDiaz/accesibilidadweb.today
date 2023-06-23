@@ -4,7 +4,7 @@
 @use "../abstract/themes" as *;
 
 :root {
-  $themes: false;
+  $themes: true;
   // COLOR CUSTOM PROPERTIES
 
   // Neutral and main colors
@@ -21,17 +21,40 @@
     }
   }
 
+  // LIGHT MODE COLOR TOKENS
+
   // Color tokens for main color theme
   @each $key, $item in $light {
     --clr-#{$key}: var(--clr-main-#{$item});
   }
 
+  // Color token for specific module elements visibles in default theme
+  @for $i from 1 through 8 {
+    --clr-module-#{$i}-accent: var(--clr-module-#{$i}-700);
+  }
+
+  // Neutral color tokens
+  --clr-background: var(--clr-neutral-100);
+  --clr-text: var(--clr-neutral-800);
+  --clr-footnote: var(--clr-neutral-700);
+
   @if $themes {
     @media screen and (prefers-color-scheme: dark) {
+      // Color tokens for main color theme
       @each $key, $item in $dark {
         --clr-#{$key}: var(--clr-main-#{$item});
       }
+
+      // Color token for specific module elements visibles in default theme
+      @for $i from 1 through 8 {
+        --clr-module-#{$i}-accent: var(--clr-module-#{$i}-300);
+      }
     }
+
+    // Neutral color tokens
+    --clr-background: var(--clr-neutral-900);
+    --clr-text: var(--clr-neutral-200);
+    --clr-footnote: var(--clr-neutral-300);
   }
 
   // Color tokens for different modules

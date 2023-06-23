@@ -1,6 +1,8 @@
 body {
   font-size: var(--fs-300);
   font-family: var(--ff-text);
+  background-color: var(--clr-background);
+  color: var(--clr-text);
 }
 
 h1,
@@ -14,6 +16,8 @@ h6 {
 
 h1 {
   font-size: var(--fs-600);
+  line-height: 1.2;
+  max-width: 17ch;
 }
 
 h2 {
@@ -22,6 +26,14 @@ h2 {
 
 h3 {
   font-size: var(--fs-400);
+}
+
+:is(h1, h2, h3) {
+  color: var(--clr-title);
+}
+
+p {
+  max-width: 60ch;
 }
 
 :focus-visible {
@@ -33,12 +45,4 @@ h3 {
   @media screen and (prefers-reduced-motion: no-preference) {
     transition: outline-offset 200ms ease-in-out;
   }
-}
-
-body {
-  background: linear-gradient(
-    102.81deg,
-    var(--clr-hero-bg-tone-1) 0%,
-    var(--clr-hero-bg-tone-2) 100%
-  );
 }

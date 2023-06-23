@@ -1,14 +1,10 @@
 .has-icon {
   & svg {
-    width: 0.75em;
+    width: 1em;
     width: 1cap;
-    height: 0.75em;
+    height: 1em;
     height: 1cap;
-    margin-inline-start: 0.4ch;
-  }
-
-  &[data-icon-start] svg {
-    margin-inline-start: 0;
+    vertical-align: middle;
     margin-inline-end: 0.4ch;
   }
 }

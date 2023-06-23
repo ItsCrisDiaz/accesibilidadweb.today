@@ -1,0 +1,14 @@
+@use "../abstract/breakpoints" as *;
+
+.columns {
+  display: grid;
+  gap: var(--grid-gap, 1rem);
+}
+
+@each $key, $item in $breakpoints {
+  @media screen and (min-width: #{$item}) {
+    .columns[data-breakpoint="#{$key}"] {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+}

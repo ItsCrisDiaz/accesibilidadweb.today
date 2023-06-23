@@ -1,9 +1,47 @@
 ---
+import { getCollection } from "astro:content";
+
 // Component Imports
 import Layout from "../layouts/layout.astro";
+import Hero from "../components/Hero/Hero.astro";
+import Modules from "../components/Modules/Modules";
+import Separator from "../components/Separator/Separator.astro";
+
+// const accordionContent = await Astro.glob("../content/modules/*.md");
+const moduleContent = await getCollection("modules");
 ---
 
 <Layout>
-  <h1>Nuevo sitio</h1>
-  <a href="#">a</a>
+  <Hero />
+  <section aria-labelledby="modules-title">
+    <div class="wrapper | flow">
+      <h2 class="fs-500 mb-5" id="modules-title">
+        En esta guía podrás aprender sobre:
+      </h2>
+      <Modules moduleContent={moduleContent} client:load />
+      <noscript>
+        <ul class="auto-columns" role="list">
+          {
+            moduleContent.map((element) => {
+              return (
+                <li>
+                  <article class="flow" data-module={element.data.module}>
+                    <h3>{element.data.title}</h3>
+                    <div set:html={element.body} />
+                    <p>
+                      <strong>
+                        {element.data.availableLessons} de{" "}
+                        {element.data.totalLessons} disponibles.
+                      </strong>
+                    </p>
+                  </article>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </noscript>
+    </div>
+    <Separator />
+  </section>
 </Layout>

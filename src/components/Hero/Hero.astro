@@ -1,0 +1,43 @@
+---
+import HeroSvg from "./HeroSvg.astro";
+---
+
+<section class="gradient-bg">
+  <div class="wrapper | grid">
+    <div class="hero__cta | grid">
+      <h1>Aprende sobre accesibilidad web</h1>
+      <p class="fs-500">
+        <b>Accesibilidadweb.today</b> es una guía en proceso que te ayudará a aprender
+        sobre accesibilidad web desde el desarrollo web y el diseño de interfaces
+      </p>
+    </div>
+    <div>
+      <HeroSvg />
+    </div>
+  </div>
+</section>
+
+<style>
+  p {
+    line-height: 1.3;
+  }
+
+  .hero__cta {
+    --gap: var(--space-6);
+    place-content: center;
+  }
+
+  img {
+    width: 2000px;
+  }
+
+  .wrapper {
+    --gap: var(--space-3) var(--space-6);
+  }
+
+  @media screen and (min-width: 768px) {
+    .wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
