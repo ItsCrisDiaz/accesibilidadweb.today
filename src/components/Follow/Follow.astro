@@ -1,0 +1,90 @@
+---
+import { Icon } from "../Icon/Icon";
+import { Newsletter } from "./Newsletter";
+---
+
+<section class="solid-bg fs-400" aria-labelledby="follow-title">
+  <div class="wrapper | flow">
+    <h2 class="fs-500" id="follow-title">Sigue este proyecto</h2>
+    <div class="follow__wrapper | auto-columns">
+      <div class="flow">
+        <p>
+          Este proyecto está en constante actualización, puedes suscribirte a
+          este newsletter para conocer de primera mano cualquier avance.
+        </p>
+        <Newsletter client:visible />
+      </div>
+      <div class="flow">
+        <p>
+          También puedes seguir las actualizaciones de este proyecto a través de
+          estos medios:
+        </p>
+        <ul class="follow__social-media | fs-500 cluster" role="list">
+          <li>
+            <a class="has-icon" href="/rss.xml">
+              <b>
+                <Icon
+                  name="rss"
+                  width="35"
+                  height="35"
+                  viewBox="0 0 35 35"
+                />RSS
+              </b>
+            </a>
+          </li>
+          <li>
+            <a class="has-icon" href="https://twitter.com/ItsCrisDiaz">
+              <b>
+                <Icon
+                  name="twitter"
+                  width="35"
+                  height="35"
+                  viewBox="0 0 35 35"
+                />Twitter
+              </b>
+            </a>
+          </li>
+          <li>
+            <a class="has-icon" href="https://discord.gg/K4wnP2DgYA">
+              <b>
+                <Icon
+                  name="discord"
+                  width="35"
+                  height="35"
+                  viewBox="0 0 35 35"
+                />Discord
+              </b>
+            </a>
+          </li>
+        </ul>
+        <p>
+          Si tienes alguna otra duda de este proyecto, puedes escribirme a <a
+            class="wrap"
+            href="mailto:name@email.com"
+            ><b>cristian@accesibilidadweb.today</b></a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  section :is(h2, a) {
+    color: var(--clr-footer-form-accent);
+  }
+
+  .follow__wrapper {
+    --column-width: 25rem;
+    --gap: 1em var(--space-5);
+  }
+
+  ul.follow__social-media {
+    --cluster-space: var(--fs-500);
+    justify-content: center;
+  }
+
+  .wrap {
+    word-wrap: break-word;
+  }
+</style>

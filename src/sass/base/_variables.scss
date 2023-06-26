@@ -3,8 +3,9 @@
 @use "../abstract/spaces" as *;
 @use "../abstract/themes" as *;
 
+$themes: true;
+
 :root {
-  $themes: true;
   // COLOR CUSTOM PROPERTIES
 
   // Neutral and main colors
@@ -31,12 +32,21 @@
   // Color token for specific module elements visibles in default theme
   @for $i from 1 through 8 {
     --clr-module-#{$i}-accent: var(--clr-module-#{$i}-700);
+    --clr-module-#{$i}-article-cover-icon: var(--clr-module-#{$i}-400);
+    --clr-module-#{$i}-article-cover-bg: var(--clr-module-#{$i}-700);
+    --clr-module-#{$i}-article-tag-shade-1: var(--clr-module-#{$i}-200);
+    --clr-module-#{$i}-article-tag-shade-2: var(--clr-module-#{$i}-300);
   }
 
   // Neutral color tokens
   --clr-background: var(--clr-neutral-100);
+  --clr-card-border: var(--clr-neutral-300);
   --clr-text: var(--clr-neutral-800);
   --clr-footnote: var(--clr-neutral-700);
+  --clr-input-bg: var(--clr-neutral-100);
+
+  // Not color-related tokens
+  --article-cover-opacity: 0.7;
 
   @if $themes {
     @media screen and (prefers-color-scheme: dark) {
@@ -48,13 +58,22 @@
       // Color token for specific module elements visibles in default theme
       @for $i from 1 through 8 {
         --clr-module-#{$i}-accent: var(--clr-module-#{$i}-300);
+        --clr-module-#{$i}-article-cover-icon: var(--clr-module-#{$i}-600);
+        --clr-module-#{$i}-article-cover-bg: var(--clr-module-#{$i}-800);
+        --clr-module-#{$i}-article-tag-shade-1: var(--clr-module-#{$i}-700);
+        --clr-module-#{$i}-article-tag-shade-2: var(--clr-module-#{$i}-800);
       }
+
+      // Not color-related tokens
+      --article-cover-opacity: 0.7;
     }
 
     // Neutral color tokens
     --clr-background: var(--clr-neutral-900);
+    --clr-card-border: var(--clr-neutral-700);
     --clr-text: var(--clr-neutral-200);
     --clr-footnote: var(--clr-neutral-300);
+    --clr-input-bg: var(--clr-main-300);
   }
 
   // Color tokens for different modules
@@ -86,5 +105,86 @@
 
   @each $key, $item in $spaces {
     --space-#{$key}: #{$item};
+  }
+}
+
+html[data-mode="light"] {
+  // LIGHT MODE COLOR TOKENS
+
+  // Color tokens for main color theme
+  @each $key, $item in $light {
+    --clr-#{$key}: var(--clr-main-#{$item});
+  }
+
+  // Color token for specific module elements visibles in default theme
+  @for $i from 1 through 8 {
+    --clr-module-#{$i}-accent: var(--clr-module-#{$i}-700);
+    --clr-module-#{$i}-article-cover-icon: var(--clr-module-#{$i}-400);
+    --clr-module-#{$i}-article-cover-bg: var(--clr-module-#{$i}-700);
+    --clr-module-#{$i}-article-tag-shade-1: var(--clr-module-#{$i}-200);
+    --clr-module-#{$i}-article-tag-shade-2: var(--clr-module-#{$i}-300);
+  }
+
+  // Neutral color tokens
+  --clr-background: var(--clr-neutral-100);
+  --clr-card-border: var(--clr-neutral-300);
+  --clr-text: var(--clr-neutral-800);
+  --clr-footnote: var(--clr-neutral-700);
+
+  &[data-theme] {
+    --clr-input-bg: var(--clr-neutral-100);
+  }
+
+  // Not color-related tokens
+  --article-cover-opacity: 0.7;
+
+  @for $i from 1 through 8 {
+    &[data-theme="#{$i}"] {
+      @each $key, $item in $light {
+        --clr-#{$key}: var(--clr-module-#{$i}-#{$item});
+      }
+    }
+  }
+}
+
+html[data-mode="dark"] {
+  @if $themes {
+    // Color tokens for main color theme
+    @each $key, $item in $dark {
+      --clr-#{$key}: var(--clr-main-#{$item});
+    }
+
+    // Color token for specific module elements visibles in default theme
+    @for $i from 1 through 8 {
+      --clr-module-#{$i}-accent: var(--clr-module-#{$i}-300);
+      --clr-module-#{$i}-article-cover-icon: var(--clr-module-#{$i}-600);
+      --clr-module-#{$i}-article-cover-bg: var(--clr-module-#{$i}-800);
+      --clr-module-#{$i}-article-tag-shade-1: var(--clr-module-#{$i}-700);
+      --clr-module-#{$i}-article-tag-shade-2: var(--clr-module-#{$i}-800);
+    }
+
+    // Not color-related tokens
+    --article-cover-opacity: 0.7;
+
+    // Neutral color tokens
+    --clr-background: var(--clr-neutral-900);
+    --clr-card-border: var(--clr-neutral-700);
+    --clr-text: var(--clr-neutral-200);
+    --clr-footnote: var(--clr-neutral-300);
+    --clr-input-bg: var(--clr-main-300);
+
+    @for $i from 1 through 8 {
+      &[data-theme="#{$i}"] {
+        @each $key, $item in $dark {
+          --clr-#{$key}: var(--clr-module-#{$i}-#{$item});
+        }
+
+        @if $themes {
+          @each $key, $item in $dark {
+            --clr-#{$key}: var(--clr-module-#{$i}-#{$item});
+          }
+        }
+      }
+    }
   }
 }

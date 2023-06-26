@@ -1,0 +1,107 @@
+.newsletter {
+  --outline-color: var(--clr-footer-form-accent);
+  --sidebar-width: 12rem;
+  align-items: end;
+  margin-top: 1em;
+
+  &__label {
+    font-weight: 700;
+  }
+
+  &__input {
+    --flow-space: var(--space-2);
+    width: 100%;
+    padding-inline: var(--space-1);
+    line-height: 2;
+    background-color: var(--clr-input-bg);
+    border-radius: 10px;
+    border: 2px solid var(--clr-footer-form-accent);
+  }
+
+  &__button {
+    background-color: var(--clr-footer-form-accent);
+    color: var(--clr-footer-theme-toggler-text);
+    font-family: var(--ff-title);
+    font-weight: 600;
+    border: 2px solid transparent;
+    border-radius: 10px;
+    line-height: 2;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.message {
+  &:empty {
+    display: none;
+  }
+}
+
+.loading {
+  --_width: 3.125rem;
+  --_border-thickness: 0.5rem; /* the border thickness */
+  aspect-ratio: 1;
+  width: var(--_width);
+  border-radius: 50%;
+  margin-inline: auto;
+
+  @media screen and (prefers-reduced-motion: no-preference) {
+    display: grid;
+    border: 4px solid #0000;
+    border-color: var(--clr-footnote) #0000;
+    margin-inline: auto;
+    animation: rotate 1s infinite linear;
+
+    &::before,
+    &::after {
+      content: "";
+      grid-area: 1/1;
+      margin: 2px;
+      border: inherit;
+      border-radius: 50%;
+    }
+
+    &::before {
+      border-color: var(--clr-footer-form-accent) #0000;
+      animation: inherit;
+      animation-duration: 0.5s;
+      animation-direction: reverse;
+    }
+
+    &::after {
+      margin: 8px;
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    padding: 1px;
+    background: conic-gradient(#0000 10%, var(--clr-footer-form-accent))
+      content-box;
+    -webkit-mask: repeating-conic-gradient(
+        #0000 0deg,
+        #000 1deg 20deg,
+        #0000 21deg 36deg
+      ),
+      radial-gradient(
+        farthest-side,
+        #0000 calc(100% - var(--_border-thickness) - 1px),
+        #000 calc(100% - var(--_border-thickness))
+      );
+    -webkit-mask-composite: destination-in;
+    mask-composite: intersect;
+  }
+}
+
+.icon {
+  display: block;
+  margin-inline: auto;
+  width: 3.125rem;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}

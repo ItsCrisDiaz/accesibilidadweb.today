@@ -13,6 +13,7 @@ export const Disclosure = ({
       <h3>
         <button
           class={css["disclosure__button"]}
+          type="button"
           aria-expanded={isExpanded}
           onClick={onClick}
         >

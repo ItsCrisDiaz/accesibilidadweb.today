@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.theme-toggler {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  padding: 0.125rem;
+  border-radius: 100vmax;
+  border: 2px solid var(--clr-footer-form-accent);
+
+  &__item {
+    position: relative;
+    display: grid;
+    place-items: center;
+  }
+
+  &__label {
+    padding: var(--space-1);
+    width: 100%;
+    text-align: center;
+    color: var(--clr-footer-theme-toggler-accent);
+    border-radius: 100vmax;
+  }
+
+  &__input {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    border-radius: inherit;
+
+    &:checked + .theme-toggler__label {
+      background-color: var(--clr-footer-form-accent);
+      color: var(--clr-footer-theme-toggler-text);
+      font-weight: bold;
+    }
+
+    &:focus-visible + .theme-toggler__label {
+      --outline-size: max(2px, 0.15em);
+      --outline-offset: -0.25rem;
+      outline: var(--outline-width, var(--outline-size))
+        var(--outline-style, solid) var(--outline-color, currentColor);
+      outline-offset: var(--outline-offset, var(--outline-size));
+
+      @media screen and (prefers-reduced-motion: no-preference) {
+        transition: outline-offset 200ms ease-in-out;
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+---
+import { ThemeToggler } from "../ThemeToggler/ThemeToggler";
+---
+
+<footer class="solid-bg">
+  <div class="wrapper flow">
+    <div class="space-between">
+      <p>
+        <a href="/declaracion-accesibilidad">Declaración de accesibilidad</a>
+      </p>
+      <ThemeToggler client:load />
+    </div>
+    <div>
+      <p class="text-center">
+        Este sitio fue diseñado por <a href="https://twitter.com/ItsCrisDiaz"
+          >Cristian Díaz</a
+        >
+      </p>
+      <p class="text-center">
+        Creado con <a href="https://astro.build/">Astro</a> y hospedado en <a
+          href="https://www.netlify.com/">Netlify</a
+        >
+      </p>
+      <p class="text-center">
+        © Cristian Díaz - 2022 - Presente. <strong
+          >Todos los derechos reservados</strong
+        >
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .space-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+  }
+
+  div.wrapper {
+    padding-block-start: 0;
+  }
+
+  a {
+    font-weight: bold;
+    color: var(--clr-footer-form-accent);
+  }
+</style>

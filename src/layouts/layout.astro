@@ -2,6 +2,8 @@
 import { SEO } from "astro-seo";
 
 import Header from "../components/Header/Header.astro";
+import Follow from "../components/Follow/Follow.astro";
+import Footer from "../components/Footer/Footer.astro";
 
 import favicon__lm from "/assets/images/favicon.svg";
 
@@ -64,6 +66,10 @@ const {
 
   <body>
     <Header />
-    <main id="main-content"><slot /></main>
+    <main id="main-content">
+      <slot />
+      <Follow />
+    </main>
+    <Footer />
   </body>
 </html>

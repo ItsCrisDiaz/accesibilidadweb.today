@@ -30,6 +30,7 @@ h3 {
 
 :is(h1, h2, h3) {
   color: var(--clr-title);
+  text-wrap: balance;
 }
 
 p {

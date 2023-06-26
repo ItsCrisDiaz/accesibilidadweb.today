@@ -1,6 +1,6 @@
 import css from "./Icon.module.scss";
 
-export function Icon({ className, width, height, viewBox, name }) {
+export function Icon({ className = "", width, height, viewBox, name }) {
   return (
     <svg
       class={`${css.icon} ${className ? className : ""}`}
