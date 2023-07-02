@@ -5,16 +5,17 @@ import Header from "../components/Header/Header.astro";
 import Follow from "../components/Follow/Follow.astro";
 import Footer from "../components/Footer/Footer.astro";
 
-import favicon__lm from "/assets/images/favicon.svg";
+import favicon__lm from "/assets/icons/favicon-lm.svg";
+import favicon__dm from "/assets/icons/favicon-dm.svg";
 
 const {
   title = "Accesibilidadweb.today",
   theme = "default",
   description = "Guía en español para aprender sobre accesibilidad web enfocada en desarrollo y diseño de interfaces",
   seoImage = {
-    url: "",
-    width: "200",
-    height: "200",
+    url: `/assets/images/card-${theme}.png`,
+    width: "1200",
+    height: "630",
   },
 } = Astro.props;
 ---
@@ -22,8 +23,54 @@ const {
 <!DOCTYPE html>
 <html lang="es" data-theme={theme} data-no-js>
   <head>
+    <title>{title}</title>
+    <meta name="generator" content={Astro.generator} />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style lang="scss" is:global>
+      @import "../sass/index.scss";
+    </style>
+    <link
+      rel="preload"
+      href="/assets/fonts/Atkinson-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/Atkinson-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/assets/fonts/Lexend.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <script defer>
+      const HTML = document.querySelector("html");
+      HTML.removeAttribute("data-no-js");
+
+      if (localStorage.getItem("mode")) {
+      } else {
+        const isDarkMode = window.matchMedia(
+          "(prefers-color-scheme: dark)"
+        ).matches;
+
+        if (isDarkMode) {
+          localStorage.setItem("mode", "dark");
+        } else {
+          localStorage.setItem("mode", "light");
+        }
+      }
+
+      HTML.setAttribute("data-mode", localStorage.getItem("mode"));
+    </script>
     <SEO
-      title={title}
       description={description}
       openGraph={{
         basic: {
@@ -36,8 +83,6 @@ const {
         creator: "@ItsCrisDiaz",
       }}
       extend={{
-        // extending the default link tags
-        link: [{ rel: "icon", href: favicon__lm }],
         // extending the default meta tags
         meta: [
           {
@@ -53,15 +98,13 @@ const {
         ],
       }}
     />
-    <meta name="generator" content={Astro.generator} />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style lang="scss" is:global>
-      @import "../sass/index.scss";
-    </style>
-    <script defer>
-      document.querySelector("html").removeAttribute("data-no-js");
-    </script>
+    <link rel="icon" type="image/svg" href={favicon__lm} />
+    <link
+      rel="icon"
+      type="image/svg"
+      href={favicon__dm}
+      media="(prefers-color-scheme: dark)"
+    />
   </head>
 
   <body>

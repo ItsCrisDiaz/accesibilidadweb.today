@@ -1,7 +1,13 @@
-.container {
+.container:not([hidden]) {
   display: flex;
   gap: var(--space-2);
   align-items: center;
+  justify-content: center;
+  margin-inline: auto;
+
+  @media screen and (min-width: 32.8125rem) {
+    margin-inline-end: 0;
+  }
 }
 
 .theme-toggler {
@@ -24,6 +30,11 @@
     text-align: center;
     color: var(--clr-footer-theme-toggler-accent);
     border-radius: 100vmax;
+    forced-color-adjust: none;
+
+    @media screen and (forced-colors: active) {
+      color: CanvasText;
+    }
   }
 
   &__input {
@@ -37,6 +48,11 @@
       background-color: var(--clr-footer-form-accent);
       color: var(--clr-footer-theme-toggler-text);
       font-weight: bold;
+
+      @media screen and (forced-colors: active) {
+        background-color: Highlight;
+        color: Canvas;
+      }
     }
 
     &:focus-visible + .theme-toggler__label {
@@ -48,6 +64,10 @@
 
       @media screen and (prefers-reduced-motion: no-preference) {
         transition: outline-offset 200ms ease-in-out;
+      }
+
+      @media screen and (forced-colors: active) {
+        --outline-color: Canvas;
       }
     }
   }

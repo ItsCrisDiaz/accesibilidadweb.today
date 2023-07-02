@@ -1,8 +1,52 @@
 ---
+import { Module1Lessons } from "../../../data/Module1Lessons";
 // Component Imports
 import Layout from "../../../layouts/layout.astro";
+import ModuleHero from "../../../components/ModuleHero/ModuleHero.astro";
 ---
 
-<Layout theme="1">
-  <h1>Módulo 1</h1>
+<Layout
+  theme="1"
+  title="Fundamentos de accesibilidad - Accesibilidadweb.today"
+  description="Aprende lo necesario sobre qué es la accesibilidad y los diferentes tipos de discapacidades."
+>
+  <ModuleHero module="1">
+    <h1>Fundamentos de accesibilidad</h1>
+    <p class="fs-500">
+      Aprende sobre qué es la accesibilidad y como esto afecta el entorno
+      digital aquí.
+    </p>
+  </ModuleHero>
+  <section aria-labelledby="lessons-title">
+    <div class="wrapper flow" data-width="narrow">
+      <h2 id="lessons-title">Lecciones</h2>
+      <ul>
+        {
+          Module1Lessons.map((element) => {
+            return (
+              <li>
+                <p>
+                  <a
+                    href={element.url ? element.url : null}
+                    role={element.url ? null : "link"}
+                    aria-disabled={element.url ? null : "true"}
+                    set:html={element.title}
+                  />{" "}
+                  {element.url ? null : "- (En proceso)"}
+                </p>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <p class="fs-400">
+        ¿Tienes alguna sugerencia sobre qué se puede enseñar en este o en
+        cualquier otro módulo? ¡No dudes en enviar tu sugerencia a <a
+          class="text-wrap"
+          href="mailto:cristian@accesibilidadweb.today"
+          ><b>cristian@accesibilidadweb.today</b></a
+        >!
+      </p>
+    </div>
+  </section>
 </Layout>

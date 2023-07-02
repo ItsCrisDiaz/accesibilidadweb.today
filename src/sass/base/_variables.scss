@@ -66,14 +66,14 @@ $themes: true;
 
       // Not color-related tokens
       --article-cover-opacity: 0.7;
-    }
 
-    // Neutral color tokens
-    --clr-background: var(--clr-neutral-900);
-    --clr-card-border: var(--clr-neutral-700);
-    --clr-text: var(--clr-neutral-200);
-    --clr-footnote: var(--clr-neutral-300);
-    --clr-input-bg: var(--clr-main-300);
+      // Neutral color tokens
+      --clr-background: var(--clr-neutral-900);
+      --clr-card-border: var(--clr-neutral-700);
+      --clr-text: var(--clr-neutral-200);
+      --clr-footnote: var(--clr-neutral-300);
+      --clr-input-bg: var(--clr-neutral-900);
+    }
   }
 
   // Color tokens for different modules
@@ -130,10 +130,7 @@ html[data-mode="light"] {
   --clr-card-border: var(--clr-neutral-300);
   --clr-text: var(--clr-neutral-800);
   --clr-footnote: var(--clr-neutral-700);
-
-  &[data-theme] {
-    --clr-input-bg: var(--clr-neutral-100);
-  }
+  --clr-input-bg: var(--clr-neutral-100);
 
   // Not color-related tokens
   --article-cover-opacity: 0.7;
@@ -171,7 +168,7 @@ html[data-mode="dark"] {
     --clr-card-border: var(--clr-neutral-700);
     --clr-text: var(--clr-neutral-200);
     --clr-footnote: var(--clr-neutral-300);
-    --clr-input-bg: var(--clr-main-300);
+    --clr-input-bg: var(--clr-neutral-900);
 
     @for $i from 1 through 8 {
       &[data-theme="#{$i}"] {

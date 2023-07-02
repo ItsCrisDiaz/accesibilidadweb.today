@@ -3,7 +3,7 @@ import { Icon } from "../Icon/Icon";
 import { Newsletter } from "./Newsletter";
 ---
 
-<section class="solid-bg fs-400" aria-labelledby="follow-title">
+<section id="follow" class="solid-bg fs-400" aria-labelledby="follow-title">
   <div class="wrapper | flow">
     <h2 class="fs-500" id="follow-title">Sigue este proyecto</h2>
     <div class="follow__wrapper | auto-columns">
@@ -59,8 +59,8 @@ import { Newsletter } from "./Newsletter";
         </ul>
         <p>
           Si tienes alguna otra duda de este proyecto, puedes escribirme a <a
-            class="wrap"
-            href="mailto:name@email.com"
+            class="text-wrap"
+            href="mailto:cristian@accesibilidadweb.today"
             ><b>cristian@accesibilidadweb.today</b></a
           >
         </p>
@@ -82,9 +82,5 @@ import { Newsletter } from "./Newsletter";
   ul.follow__social-media {
     --cluster-space: var(--fs-500);
     justify-content: center;
-  }
-
-  .wrap {
-    word-wrap: break-word;
   }
 </style>

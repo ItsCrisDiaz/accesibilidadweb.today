@@ -26,37 +26,6 @@ const articleText = {
   update: "Actualización de prueba",
   date: "2023-06-30",
 };
-const articleText2 = {
-  module: "2",
-  type: "secondary",
-  title: "Texto de prueba 2",
-  url: "/modulos/modulo-1",
-  topics: ["Prueba 1", "Prueba 2", "Prueba 3", "Prueba 4"],
-  description: "Texto descriptivo de la lección que va a usarse como title",
-  update: "Actualización de prueba",
-  date: "2023-06-30",
-};
-const articleText3 = {
-  module: "1",
-  type: "mini",
-  title: "Texto de prueba 3",
-  url: "/modulos/modulo-1",
-  topics: ["Prueba 1", "Prueba 2", "Prueba 3", "Prueba 4"],
-  description: "Texto descriptivo de la lección que va a usarse como title",
-  update: "Actualización de prueba",
-  date: "2023-06-30",
-};
-const articleText4 = {
-  module: "5",
-  type: "update",
-  title: "Texto de prueba 4",
-  url: "/modulos/modulo-1",
-  topics: ["Prueba 1", "Prueba 2", "Prueba 3", "Prueba 4"],
-  description: "Texto descriptivo de la lección que va a usarse como title",
-  update:
-    "Texto de prueba sobre corrección o actualización más reciente del artículo",
-  date: "2023-06-30",
-};
 ---
 
 <Layout>
@@ -67,136 +36,51 @@ const articleText4 = {
         En esta guía podrás aprender sobre:
       </h2>
       <Modules moduleContent={moduleContent} client:load />
-      <noscript>
-        <ul class="auto-columns" role="list">
-          {
-            moduleContent.map((element) => {
-              return (
-                <li>
-                  <article class="flow" data-module={element.data.module}>
-                    <h3>{element.data.title}</h3>
-                    <div set:html={element.body} />
-                    <p>
-                      <strong>
-                        {element.data.availableLessons} de{" "}
-                        {element.data.totalLessons} disponibles.
-                      </strong>
-                    </p>
-                  </article>
-                </li>
-              );
-            })
-          }
-        </ul>
-      </noscript>
     </div>
-    <Separator />
-    <Lessons>
-      <ul role="list" class="lessons-layout">
+  </section>
+  <Separator />
+  <Lessons><p class="fs-500">¡Próximamente!</p></Lessons>
+  <!-- <section aria-labelledby="update-title">
+    <div class="wrapper flow">
+      <h2 id="update-title">Actualizaciones</h2>
+      <ul role="list" class="update-layout | switcher">
         <li>
           <ArticleCard
-            module={articleText.module}
-            type={articleText.type}
-            title={articleText.title}
-            url={articleText.url}
-            topics={articleText.topics}
-            description={articleText.description}
-            update={articleText.update}
-            date={articleText.date}
+            module={articleText4.module}
+            type={articleText4.type}
+            title={articleText4.title}
+            url={articleText4.url}
+            topics={articleText4.topics}
+            description={articleText4.description}
+            update={articleText4.update}
+            date={articleText4.date}
           />
         </li>
         <li>
           <ArticleCard
-            module={articleText2.module}
-            type={articleText2.type}
-            title={articleText2.title}
-            url={articleText2.url}
-            topics={articleText2.topics}
-            description={articleText2.description}
-            update={articleText2.update}
-            date={articleText2.date}
+            module={articleText4.module}
+            type={articleText4.type}
+            title={articleText4.title}
+            url={articleText4.url}
+            topics={articleText4.topics}
+            description={articleText4.description}
+            update={articleText4.update}
+            date={articleText4.date}
           />
         </li>
         <li>
           <ArticleCard
-            module={articleText3.module}
-            type={articleText3.type}
-            title={articleText3.title}
-            url={articleText3.url}
-            topics={articleText3.topics}
-            description={articleText3.description}
-            update={articleText3.update}
-            date={articleText3.date}
-          />
-        </li>
-        <li>
-          <ArticleCard
-            module={articleText3.module}
-            type={articleText3.type}
-            title={articleText3.title}
-            url={articleText3.url}
-            topics={articleText3.topics}
-            description={articleText3.description}
-            update={articleText3.update}
-            date={articleText3.date}
-          />
-        </li>
-        <li>
-          <ArticleCard
-            module={articleText3.module}
-            type={articleText3.type}
-            title={articleText3.title}
-            url={articleText3.url}
-            topics={articleText3.topics}
-            description={articleText3.description}
-            update={articleText3.update}
-            date={articleText3.date}
+            module={articleText4.module}
+            type={articleText4.type}
+            title={articleText4.title}
+            url={articleText4.url}
+            topics={articleText4.topics}
+            description={articleText4.description}
+            update={articleText4.update}
+            date={articleText4.date}
           />
         </li>
       </ul>
-    </Lessons>
-    <section aria-labelledby="update-title">
-      <div class="wrapper flow">
-        <h2 id="update-title">Actualizaciones</h2>
-        <ul role="list" class="update-layout | switcher">
-          <li>
-            <ArticleCard
-              module={articleText4.module}
-              type={articleText4.type}
-              title={articleText4.title}
-              url={articleText4.url}
-              topics={articleText4.topics}
-              description={articleText4.description}
-              update={articleText4.update}
-              date={articleText4.date}
-            />
-          </li>
-          <li>
-            <ArticleCard
-              module={articleText4.module}
-              type={articleText4.type}
-              title={articleText4.title}
-              url={articleText4.url}
-              topics={articleText4.topics}
-              description={articleText4.description}
-              update={articleText4.update}
-              date={articleText4.date}
-            />
-          </li>
-          <li>
-            <ArticleCard
-              module={articleText4.module}
-              type={articleText4.type}
-              title={articleText4.title}
-              url={articleText4.url}
-              topics={articleText4.topics}
-              description={articleText4.description}
-              update={articleText4.update}
-              date={articleText4.date}
-            />
-          </li>
-        </ul>
-      </div>
-    </section>
-  </section>
+    </div>
+  </section> -->
 </Layout>

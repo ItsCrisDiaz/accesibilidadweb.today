@@ -12,20 +12,20 @@
     --_svg-module-stroke: CanvasText;
     --_svg-module-line: CanvasText;
   }
-}
 
-@media screen and (prefers-reduced-motion: no-preference) {
-  .accordion-svg [data-module] * {
-    transition: fill 300ms ease-in-out, stroke 300ms ease-in-out;
+  @media screen and (prefers-reduced-motion: no-preference) {
+    & [data-module] * {
+      transition: fill 300ms ease-in-out, stroke 300ms ease-in-out;
+    }
   }
-}
 
-@media screen and (forced-colors: none) {
-  @for $i from 1 through 8 {
-    .accordion-svg [data-module="#{$i}"][data-active] {
-      --_svg-module-fill: var(--clr-module-#{$i}-300);
-      --_svg-module-stroke: var(--clr-module-#{$i}-700);
-      --_svg-module-line: var(--_svg-module-stroke);
+  @media screen and (forced-colors: none) {
+    @for $i from 1 through 8 {
+      & [data-module="#{$i}"][data-active] {
+        --_svg-module-fill: var(--clr-module-#{$i}-300);
+        --_svg-module-stroke: var(--clr-module-#{$i}-700);
+        --_svg-module-line: var(--_svg-module-stroke);
+      }
     }
   }
 }

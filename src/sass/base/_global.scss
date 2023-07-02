@@ -17,7 +17,7 @@ h6 {
 h1 {
   font-size: var(--fs-600);
   line-height: 1.2;
-  max-width: 17ch;
+  max-width: 25ch;
 }
 
 h2 {
@@ -46,4 +46,8 @@ p {
   @media screen and (prefers-reduced-motion: no-preference) {
     transition: outline-offset 200ms ease-in-out;
   }
+}
+
+a {
+  color: var(--clr-blog-accent);
 }

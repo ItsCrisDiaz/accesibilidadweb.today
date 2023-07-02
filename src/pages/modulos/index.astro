@@ -3,16 +3,61 @@
 import Layout from "../../layouts/layout.astro";
 ---
 
-<Layout>
-  <h1>Módulos</h1>
-  <ul>
-    <li><a href="/modulos/modulo-1">Módulo 1</a></li>
-    <li><a href="/modulos/modulo-2">Módulo 2</a></li>
-    <li><a href="/modulos/modulo-3">Módulo 3</a></li>
-    <li><a href="/modulos/modulo-4">Módulo 4</a></li>
-    <li><a href="/modulos/modulo-5">Módulo 5</a></li>
-    <li><a href="/modulos/modulo-6">Módulo 6</a></li>
-    <li><a href="/modulos/modulo-7">Módulo 7</a></li>
-    <li><a href="/modulos/modulo-8">Módulo 8</a></li>
-  </ul>
+<Layout
+  title="Módulos de accesibilidadweb.today"
+  description="Descripción de cómo está dividido este proyecto y la metodología que se usará para enseñar sobre accesibilidad web"
+>
+  <div class="wrapper flow" data-width="narrow">
+    <h1>Módulos</h1>
+    <h2 class="sr-only">Tipo de contenido</h2>
+    <p>
+      Este proyecto se divide en distintos módulos, y dentro de cada módulo
+      puedes encontrar:
+    </p>
+    <ul class="flow" role="list">
+      <li class="flow">
+        <h3>Lecciones</h3>
+        <p>
+          Hechas en formato de blog donde se explica un tema en profundidad.
+        </p>
+      </li>
+      <li class="flow">
+        <h3>Técnicas</h3>
+        <p>
+          Cada tanto, cuando se hayan dado las lecciones correspondientes, se
+          explicará como combinar lo aprendido y aplicarlo en casos concretos.
+        </p>
+      </li>
+      <li class="flow">
+        <h3>Talleres</h3>
+        <p>
+          Al final de cada módulo, se hará un tutorial práctico donde se combina
+          todo lo aprendido, apegándose a como se haría contenido accesible en
+          la vida real.
+        </p>
+      </li>
+    </ul>
+    <h2>Lista de módulos</h2>
+    <p>Estos son los módulos en los que se divide esta guía</p>
+    <ul class="flow">
+      <li>
+        <h3><a href="/modulos/modulo-1">Fundamentos de accesibilidad</a></h3>
+      </li>
+      <li><h3><a href="/modulos/modulo-2">HTML</a></h3></li>
+      <li><h3><a href="/modulos/modulo-3">WAI-ARIA</a></h3></li>
+      <li><h3><a href="/modulos/modulo-4">CSS</a></h3></li>
+      <li><h3><a href="/modulos/modulo-5">JavaScript</a></h3></li>
+      <li><h3><a href="/modulos/modulo-6">Patrones de componentes</a></h3></li>
+      <li><h3><a href="/modulos/modulo-1">Testing</a></h3></li>
+      <li><h3><a href="/modulos/modulo-1">Diseño de interfaces</a></h3></li>
+    </ul>
+    <p class="fs-400">
+      Este proyecto está sujeto a cambios y está abierto a feedback. ¿Tienes
+      algún comentario sobre esta guía? No dudes en enviar tus comentarios a <a
+        class="text-wrap"
+        href="mailto:cristian@accesibilidadweb.today"
+        ><b>cristian@accesibilidadweb.today</b></a
+      >
+    </p>
+  </div>
 </Layout>

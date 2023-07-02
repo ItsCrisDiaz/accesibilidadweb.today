@@ -1,4 +1,9 @@
 .text-center {
   width: fit-content;
   margin-inline: auto;
+  text-align: center;
+}
+
+.text-wrap {
+  word-wrap: break-word;
 }

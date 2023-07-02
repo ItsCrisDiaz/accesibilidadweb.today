@@ -7,17 +7,7 @@ import { gsap } from "gsap";
 import css from "./Modules.module.scss";
 import disclosure from "../Disclosure/Disclosure.module.scss";
 
-const MODULE_VIEWBOX = {
-  default: "0 0 890 894",
-  module1: "223 -30 450 452",
-  module2: "460 20 450 452",
-  module3: "470 220 450 452",
-  module4: "460 462 450 452",
-  module5: "223 472 450 452",
-  module6: "-20 462 450 452",
-  module7: "-30 220 450 452",
-  module8: "-20 -20 450 452",
-};
+import { MODULE_VIEWBOX } from "../../data/MODULE_VIEWBOX";
 
 export default function Modules({ moduleContent }) {
   const [loadedJs, setLoadedJs] = useState(false);
@@ -32,13 +22,6 @@ export default function Modules({ moduleContent }) {
     module7: false,
     module8: false,
   });
-
-  const [test, setTest] = useState(false);
-
-  const testClick = (text) => {
-    setTest(!test);
-    window.alert(text);
-  };
 
   const [moduleViewBox, setModuleViewBox] = useState(MODULE_VIEWBOX.default);
 
@@ -84,7 +67,6 @@ export default function Modules({ moduleContent }) {
 
   const handleClick = (module) => {
     handleExpandedDisclosure(module);
-    // handleModuleViewBow(module);
   };
 
   useEffect(() => {
@@ -114,52 +96,54 @@ export default function Modules({ moduleContent }) {
     }
   }, [moduleViewBox]);
 
-  if (loadedJs) {
-    return (
-      <div class={`columns ${css.modules}`} data-breakpoint="md">
-        <div class={css["svg-col"]}>
-          <AnimatedSvg activeModule={activeModule} />
-        </div>
-        <div class={`flow | ${css["acc-col"]}`}>
-          {moduleContent.map((element) => {
-            return (
-              <Disclosure
-                title={element.data.title}
-                module={element.data.module}
-                isExpanded={expanded[`module${element.data.module}`]}
-                onClick={() => handleClick(element.data.module)}
-              >
-                <div
-                  dangerouslySetInnerHTML={{
-                    __html: element.body,
-                  }}
-                />
-                <p class="text-color-title">
-                  {" "}
-                  <strong>
-                    {element.data.availableLessons} de{" "}
-                    {element.data.totalLessons} disponibles.{" "}
-                  </strong>{" "}
-                </p>
-                <p class="fs-400 text-center">
-                  <a
-                    className={`has-icon ${disclosure["disclosure__module-link"]}`}
-                    href={`/modulos/modulo-${element.data.module}/`}
-                  >
-                    <Icon
-                      name={`module_${element.data.module}`}
-                      width="100"
-                      height="100"
-                      viewBox="0 0 100 100"
-                    />
-                    <span>Ver lecciones del módulo {element.data.module}</span>
-                  </a>
-                </p>
-              </Disclosure>
-            );
-          })}
-        </div>
+  return (
+    <div
+      class={`${loadedJs ? "columns" : ""} ${css.modules}`}
+      {...{ "data-breakpoint": loadedJs ? "md" : null }}
+    >
+      <div class={css["svg-col"]} {...{ hidden: loadedJs ? null : "" }}>
+        <AnimatedSvg activeModule={activeModule} />
       </div>
-    );
-  }
+      <div class={`flow | ${css["acc-col"]}`}>
+        {moduleContent.map((element) => {
+          return (
+            <Disclosure
+              title={element.data.title}
+              module={element.data.module}
+              loadedJs={loadedJs}
+              isExpanded={expanded[`module${element.data.module}`]}
+              onClick={() => handleClick(element.data.module)}
+            >
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: element.body,
+                }}
+              />
+              <p class="text-color-title">
+                {" "}
+                <strong>
+                  {element.data.availableLessons} de {element.data.totalLessons}{" "}
+                  lecciones disponibles.{" "}
+                </strong>{" "}
+              </p>
+              <p class="fs-400 text-center">
+                <a
+                  className={`has-icon ${disclosure["disclosure__module-link"]}`}
+                  href={`/modulos/modulo-${element.data.module}/`}
+                >
+                  <Icon
+                    name={`module_${element.data.module}`}
+                    width="100"
+                    height="100"
+                    viewBox="0 0 100 100"
+                  />
+                  <span>Ver lecciones del módulo {element.data.module}</span>
+                </a>
+              </p>
+            </Disclosure>
+          );
+        })}
+      </div>
+    </div>
+  );
 }

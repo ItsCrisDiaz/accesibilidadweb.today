@@ -1,8 +1,52 @@
 ---
+import { Module6Lessons } from "../../../data/Module6Lessons";
 // Component Imports
 import Layout from "../../../layouts/layout.astro";
+import ModuleHero from "../../../components/ModuleHero/ModuleHero.astro";
 ---
 
-<Layout theme="6">
-  <h1>Módulo 6</h1>
+<Layout
+  theme="6"
+  title="Patrones de componentes - Accesibilidadweb.today"
+  description="Combina lo aprendido en módulos anteriores para crear componentes accesibles bajo el principio de mejora progresiva"
+>
+  <ModuleHero module="6">
+    <h1>Patrones de componentes</h1>
+    <p class="fs-500">
+      Combina todo lo aprendido para crear distintos componentes con el
+      principio de mejora progresiva en mente.
+    </p>
+  </ModuleHero>
+  <section aria-labelledby="lessons-title">
+    <div class="wrapper flow" data-width="narrow">
+      <h2 id="lessons-title">Lecciones</h2>
+      <ul>
+        {
+          Module6Lessons.map((element) => {
+            return (
+              <li>
+                <p>
+                  <a
+                    href={element.url ? element.url : null}
+                    role={element.url ? null : "link"}
+                    aria-disabled={element.url ? null : "true"}
+                    set:html={element.title}
+                  />{" "}
+                  {element.url ? null : "- (En proceso)"}
+                </p>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <p class="fs-400">
+        ¿Tienes alguna sugerencia sobre qué se puede enseñar en este o en
+        cualquier otro módulo? ¡No dudes en enviar tu sugerencia a <a
+          class="text-wrap"
+          href="mailto:cristian@accesibilidadweb.today"
+          ><b>cristian@accesibilidadweb.today</b></a
+        >!
+      </p>
+    </div>
+  </section>
 </Layout>

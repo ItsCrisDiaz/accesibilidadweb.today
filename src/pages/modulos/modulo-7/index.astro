@@ -1,8 +1,52 @@
 ---
+import { Module7Lessons } from "../../../data/Module7Lessons";
 // Component Imports
 import Layout from "../../../layouts/layout.astro";
+import ModuleHero from "../../../components/ModuleHero/ModuleHero.astro";
 ---
 
-<Layout theme="7">
-  <h1>Módulo 7</h1>
+<Layout
+  theme="7"
+  title="Testing - Accesibilidadweb.today"
+  description="Aprende a usar distintos tipos de pruebas manuales y automáticas para garantizar la accesibilidad de tu proyecto"
+>
+  <ModuleHero module="7">
+    <h1>Testing</h1>
+    <p class="fs-500">
+      Aprende a hacer pruebas manuales y automáticas a tus aplicaciones para
+      garantizar la accesibilidad de estos.
+    </p>
+  </ModuleHero>
+  <section aria-labelledby="lessons-title">
+    <div class="wrapper flow" data-width="narrow">
+      <h2 id="lessons-title">Lecciones</h2>
+      <ul>
+        {
+          Module7Lessons.map((element) => {
+            return (
+              <li>
+                <p>
+                  <a
+                    href={element.url ? element.url : null}
+                    role={element.url ? null : "link"}
+                    aria-disabled={element.url ? null : "true"}
+                    set:html={element.title}
+                  />{" "}
+                  {element.url ? null : "- (En proceso)"}
+                </p>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <p class="fs-400">
+        ¿Tienes alguna sugerencia sobre qué se puede enseñar en este o en
+        cualquier otro módulo? ¡No dudes en enviar tu sugerencia a <a
+          class="text-wrap"
+          href="mailto:cristian@accesibilidadweb.today"
+          ><b>cristian@accesibilidadweb.today</b></a
+        >!
+      </p>
+    </div>
+  </section>
 </Layout>

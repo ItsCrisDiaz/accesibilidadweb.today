@@ -2,23 +2,28 @@
   grid-gap: var(--space-3) var(--space-5);
 }
 
-.svg-col {
+.svg-col:not([hidden]) {
   display: grid;
   align-content: center;
 }
 
+html[data-no-js] .acc-col {
+  max-width: 50rem;
+  margin-inline: auto;
+}
+
 @media screen and (max-width: 63.9375rem) {
-  .svg-col {
+  .svg-col:not([hidden]) {
     display: none;
   }
 }
 
 @media screen and (min-width: 64rem) {
-  .svg-col {
+  html:not([data-no-js]) .svg-col {
     grid-column: 1 / 6;
   }
 
-  .acc-col {
+  html:not([data-no-js]) .acc-col {
     grid-column: 6 / 13;
   }
 }

@@ -7,4 +7,8 @@
   &[data-width="wide"] {
     max-width: 120rem;
   }
+
+  &[data-width="narrow"] {
+    max-width: 60rem;
+  }
 }

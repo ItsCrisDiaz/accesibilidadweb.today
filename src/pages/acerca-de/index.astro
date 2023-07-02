@@ -3,6 +3,125 @@
 import Layout from "../../layouts/layout.astro";
 ---
 
-<Layout>
-  <h1>Acerca de</h1>
+<Layout
+  title="Acerca de - Accesibilidadweb.today"
+  description="¿Qué es accesibilidadweb.today, cómo funciona y quién es el autor?"
+>
+  <div class="wrapper flow" data-width="narrow">
+    <h1>¿De qué trata este proyecto?</h1>
+    <p>
+      <b>Accesibilidadweb.today</b> es una guía en construcción que busca enseñar
+      lo que deberías saber sobre accesibilidad web, tanto desde el desarrollo web
+      como el diseño UI.
+    </p>
+    <p>
+      Este proyecto surgió porque he notado desde mi experiencia que el estado
+      de la accesibilidad web deja mucho que desear, y si bien he notado que la
+      cantidad de contenido sobre el tema ha incrementado, en lo que se refiere
+      a habla hispana no hay tanto. Este problema es <i>incluso más evidente</i>
+      cuando se habla de accesibilidad desde el diseño de interfaces.
+    </p>
+    <p>
+      No soy la persona con más experiencia sobre accesibilidad web, pero soy
+      alguien que en serio le apasiona el tema, así que puedo garantizarte que
+      el contenido que estoy creando va a tener toda la rigurosidad que amerita.
+      Quiero ayudar a crear un Internet donde todos puedan ser parte, y si este
+      sitio puede ayudar a este fin ¡bienvenido sea! Pero vayamos por partes,
+      probablemente no sepas quien soy para empezar, así que...
+    </p>
+    <h2>Sobre mi</h2>
+    <figure>
+      <picture>
+        <source srcset={`/assets/images/photo.avif`} type="image/avif" />
+        <source srcset={`/assets/images/photo.webp`} type="image/webp" />
+        <img
+          src={`/assets/images/photo.jpg`}
+          alt="Selfie de Cristian Díaz. Un hombre que está usando gajafas y usa una camisa gris con una camiseta blanca por debajo."
+          width="1536"
+          height="1536"
+          loading="lazy"
+          decoding="async"
+        />
+      </picture>
+    </figure>
+    <p>
+      ¡Hola! Soy Cristian Díaz, un desarrollador Front-end de Colombia, llevo
+      trabajando como desarrollador desde hace 2 años y desde los primeros días
+      de mi trabajo he estado involucrado en la creación de productos
+      accesibles. Mi experiencia con la accesibilidad antes de mi trabajo no fue
+      muy grande. Si, sabía lo básico, al menos entendía que era un <code
+        >aria-label</code
+      > lo cierto es que ya tenía cierto interés en el tema.
+    </p>
+    <p>
+      Eventualmente empecé a interesarme más y más en el tema, al punto de que
+      en mi trabajo ya empezaron a considerarme el "experto en accesibilidad" (a
+      pesar de que <b>definitivamente</b> no se todo sobre el tema) Mi interés sobre
+      el tema creció tanto que decidí escribir sobre el tema, al principio fue en
+      mi blog personal, pero eso eventualmente me llevó a escribir para lugares como
+      <a href="https://www.smashingmagazine.com/author/cristian-diaz/">
+        Smashing Magazine</a
+      > y <a href="https://blog.logrocket.com/author/cristiandiaz/">LogRocket</a
+      >.
+    </p>
+    <p>
+      He tenido un crecimiento acelerado gracias a mi dedicación por el tema, y
+      he decidido lo que he logrado aprender sobre accesibilidad (¡y lo que
+      seguiré aprendiendo!) en este sitio para crear un recurso que puedas usar
+      para aprender sobre el tema. Pero suficiente sobre mi, hablemos de como
+      planeo manejar este proyecto.
+    </p>
+    <h2>¿Cómo está organizado este proyecto?</h2>
+    <p>
+      He decidido organizar accesibilidadweb.today en diferentes módulos,
+      dividiendo este gran tema que es la accesibilidad web en lo que considero
+      sus partes básicas:
+    </p>
+    <ul class="flow">
+      <li>Fundamentos de accesibilidad</li>
+      <li>HTML</li>
+      <li>WAI-ARIA</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>Patrones de componentes</li>
+      <li>Testing</li>
+      <li>Diseño de interfaces</li>
+    </ul>
+    <p>
+      El formato principal de esta guía será en forma de artículos, donde estaré
+      explicando un tema distinto relacionado a este módulo. Adicionalmente,
+      estaré relacionando los conceptos aprendidos en un ejercicio al final del
+      módulo. Adicionalmente, estaré publicando distintas técnicas relevantes
+      una vez haya explicado la parte teórica necesaria. Esas técnicas serán
+      recopiladas en su propia sección.
+    </p>
+    <p>
+      Ten en mente que esto es un trabajo en proceso y tal vez cambie la
+      metodología a medida que vaya creando contenido, así que nada está escrito
+      en piedra.
+    </p>
+    <p>
+      Por ahora, esto es todo. ¿Quieres participar en este proyecto? ¿Hay algo
+      más que quieras saber? Siempre puedes escribirme a <a
+        href="mailto:cristian@accesibilidadweb.today"
+        >cristian@accesibilidadweb.today</a
+      > si tienes cualquier duda al respecto.
+    </p>
+    <p>
+      Si has llegado hasta el final de esta sección, solo tengo que decir
+      ¡Gracias por mostrar interés en este proyecto! Espero que este recurso
+      logré serte de utilidad.
+    </p>
+  </div>
 </Layout>
+
+<style>
+  figure {
+    max-width: 400px;
+    margin-inline: auto;
+  }
+
+  img {
+    height: auto;
+  }
+</style>

@@ -1,8 +1,52 @@
 ---
+import { Module5Lessons } from "../../../data/Module5Lessons";
 // Component Imports
 import Layout from "../../../layouts/layout.astro";
+import ModuleHero from "../../../components/ModuleHero/ModuleHero.astro";
 ---
 
-<Layout theme="5">
-  <h1>Módulo 5</h1>
+<Layout
+  theme="5"
+  title="JavaScript - Accesibilidadweb.today"
+  description="Aprende sobre como JavaScript es importante para crear componentes interactivos y lo básico que debes saber sobre el tema"
+>
+  <ModuleHero module="5">
+    <h1>JavaScript</h1>
+    <p class="fs-500">
+      Este lenguaje es muy importante para crear componentes interactivos,
+      aprende las bases para crear componentes accesibles con JavaScript aquí.
+    </p>
+  </ModuleHero>
+  <section aria-labelledby="lessons-title">
+    <div class="wrapper flow" data-width="narrow">
+      <h2 id="lessons-title">Lecciones</h2>
+      <ul>
+        {
+          Module5Lessons.map((element) => {
+            return (
+              <li>
+                <p>
+                  <a
+                    href={element.url ? element.url : null}
+                    role={element.url ? null : "link"}
+                    aria-disabled={element.url ? null : "true"}
+                    set:html={element.title}
+                  />{" "}
+                  {element.url ? null : "- (En proceso)"}
+                </p>
+              </li>
+            );
+          })
+        }
+      </ul>
+      <p class="fs-400">
+        ¿Tienes alguna sugerencia sobre qué se puede enseñar en este o en
+        cualquier otro módulo? ¡No dudes en enviar tu sugerencia a <a
+          class="text-wrap"
+          href="mailto:cristian@accesibilidadweb.today"
+          ><b>cristian@accesibilidadweb.today</b></a
+        >!
+      </p>
+    </div>
+  </section>
 </Layout>

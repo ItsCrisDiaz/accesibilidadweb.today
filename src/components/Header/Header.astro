@@ -11,7 +11,7 @@ import HomeLink from "./HomeLink.astro";
       <ul class="cluster" role="list">
         <li><a href="/acerca-de">Acerca de</a></li>
         <li><a href="/modulos">Módulos</a></li>
-        <li><a href="#">Lecciones</a></li>
+        <!-- <li><a href="#">Lecciones</a></li> -->
         <li><a href="#follow">Sigue este proyecto</a></li>
       </ul>
     </nav>
@@ -39,16 +39,16 @@ import HomeLink from "./HomeLink.astro";
     transform: translateX(-50%);
     background-color: var(--clr-footer-theme-toggler-accent);
     color: var(--clr-footer-theme-toggler-text);
+    text-decoration-color: transparent;
   }
 
   header a {
     color: var(--clr-header-link);
     font-family: var(--ff-title);
     font-weight: 500;
-    text-decoration-color: transparent;
   }
 
   header ul {
-    --cluster-space: var(--space-3);
+    --cluster-space: var(--space-2) var(--space-3);
   }
 </style>
