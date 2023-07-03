@@ -28,8 +28,6 @@ import ModuleHero from "../../../components/ModuleHero/ModuleHero.astro";
                 <p>
                   <a
                     href={element.url ? element.url : null}
-                    role={element.url ? null : "link"}
-                    aria-disabled={element.url ? null : "true"}
                     set:html={element.title}
                   />{" "}
                   {element.url ? null : "- (En proceso)"}
